@@ -1,0 +1,11 @@
+-login page ke liye hum react hook form use karenge
+-search react hook form 
+-click Get started
+-pahale hum project mai reat hook form install karenge
+-npm install react-hook-form
+-ab js select karenge
+-aur hamre login page mai import karenge
+-import { useForm } from "react-hook-form"
+-ab form mai onsumit lagyenge
+-handle submit ko bhi define karenge
+-

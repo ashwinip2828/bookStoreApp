@@ -1,0 +1,4 @@
+-create component Contact.jsx
+-App.jsx mai import kare
+-import { Link } from 'react-router-dom' in Contact.jsx
+-navbar.jsx mai jake <li><a href="/Contact">Contact</a></li> likhana

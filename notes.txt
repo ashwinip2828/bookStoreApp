@@ -1,0 +1,95 @@
+-folder vs code mai open karke usme do folder bana do
+-ek Frontend, ek Backend
+-terminal pe jake cd Frontend karke
+-ab frontend mai tailwind css install karange
+-npm create vite@latest .
+-npm intall
+npm run dev
+
+-ab tailwind ko project mai install karenge
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+-ab tailwind ki config file me code copy paste kkarange
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+-ab index css mai copy paste karenge
+
+-nav bar banane keliyr hum tailwind css ka frame work use karenge
+-https://daisyui.com/
+-docs mai jake install karenge
+-intall ke bad navbar serch karo
+-aur uska jsx code copy karo
+-search bar keliye ,search karo
+-text input
+-search Theme Controller
+-for free images
+https://www.freepik.com/
+
+
+----------------------
+-public folder mai list.json  nam se file banayenge,data create karane ke liye
+----------------------------------------------
+-slider keliye search google ,react slick slider
+-npm install react-slick --save
+-css install karane keliye
+-npm install slick-carousel --save
+-ab aage ke lines ko import karana hai usi file mai eg.Freebokk.jsx
+-import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+-ab example me jayenge aur Responsive card pe click karenge ,top pe paste karo
+-import Slider from "react-slick";
+-ab setting copy karange aur ise function mai paste karenge
+-ab jsx mai slider ka code paste karana hai
+
+----------------------------------
+-ab ek seprate card banayenge quki hame vo reuse karana hai
+-daisy ui se card search karke jo card pasand hai vo select karlo
+
+-----------------------------
+-har ek page ke liye alag route banayenge iske liye hum 
+-src folder mai home nam se folder banayenge
+-home folder mai Home.jsx nam se component banayenge
+-ab home mai jo componant dikhane vale hai un sabko import karengr Home componant mai
+-ab hum react router Dom install karenge
+-npm i react-router-dom
+-ab app.jsx mai
+{/* <Home/>
+    <Course/> */}
+ki jagah niche diya hua hai o likhana hai
+    <Routes>
+      <Route path='/'element={<Home/>} />
+      <Route path='/'element={<Course/>}  />
+    </Routes>
+-ab main.jsx se 
+ <React.StrictMode> ke jagah
+ <BrowserRouter>
+   <App />
+ </BrowserRouter>
+yah likhana hoga
+
+-ab navbar mai yah add karana hai
+<li><a href="/">Home</a></li>
+        <li><a href="/Course">Cource</a></li>
+     
+----------------------
+dark mode ke liye tailwind css ka selector
+tailwind config file mai paste karo
+  darkMode: 'selector',
+
+
+--------------------------
+login page
+-in daisyui pe modal search
+-select any one
+-dialog ka code copy kare
