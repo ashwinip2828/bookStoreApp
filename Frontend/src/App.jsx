@@ -1,12 +1,17 @@
 import React from 'react'
 import Home from './home/Home'
 import Courses from './courses/Courses'
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import Signup from './components/Signup'
 import Contact from './components/contact/Contact'
+import { Toaster } from 'react-hot-toast';
+import { useAuth } from './context/AuthProvider';
 
+function App() {
+ 
+  const [authUser,setAuthUser]=useAuth() 
+  console.log(authUser)
 
-const App = () => {
   return (
    <>
     {/* <Home/>
@@ -14,10 +19,13 @@ const App = () => {
     <div className=' dark:bg-slate-900 dark:text-white'>
     <Routes>
       <Route path='/'element={<Home/>} />
-      <Route path='/course'element={<Courses/>}  />
+      {/* <Route path='/course'element={<Courses/>}  /> */}
+      {/* course vala route protect karenge */}
+      <Route path='/course'element={authUser?<Courses/>:<Navigate to="/Signup"/>}  />
       <Route path='/Signup'element={<Signup/>}  />
       <Route path='/Contact'element={<Contact/>}  />
     </Routes>
+    <Toaster />
 
     </div>
     

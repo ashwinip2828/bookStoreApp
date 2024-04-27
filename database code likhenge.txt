@@ -1,0 +1,152 @@
+--iske liye database connectivity karani padegi
+--iske liye 2 option hai
+--ek mongo db ka cloud use karo
+--second mongodb apane system mai install karo aur locally us vale db ko use karo
+--hum mongo db compass ko use karenge
+--open mongo db compass
+--ab coonect pe click kare
+--ab three dots hai uspe click kare (...)
+--select copy connection string
+--string copy karane ke bad vapas vs code ke file mai jayenge
+-- .env file mai likho aur vo string paste karo
+ MongoDBURI="mongodb://localhost:27017bookStore"
+--save karo aur index.js mai jao
+--isase pahale mongoose install kar lenge
+>npm i mongoose
+--mongoose import kare
+import mongoose from "mongoose";
+--ab index.js mai likhe
+const PORT = process.env.PORT || 4000; 
+const URI = process.env.mongoDBURI
+
+//connect to mongoDB 
+// yeh sirf local mongodb ke liye dena padata hai
+try {
+  mongoose.connect(URI,{
+    // yeh sirf local mongodb ke liye dena padata hai
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+  console.log("connected to mongodb");
+} catch (error) {
+  console.log("Error:", error );
+}
+
+--console pe aa jayega 
+connected to mongodb
+
+--ab terminal ko split karake ek pe backend chalayenge ek pe front end chalayenge
+--Frontend :
+>npm run dev
+
+
+--ab data ke liye modal define karenge
+--iske liye Backend folder ke ander model nam se folder banayenge
+-us folder ke ander ek file banayenge book.model.js nam se
+-is file mai pahale mongoose ko import kar lenge
+-ab data ke liye ek schema likhenge
+const bookSchema= mongoose.Schema({
+name:String,
+title:String,
+price:Number,
+category:String,
+image:String
+})
+
+-ab create kiye huye Schema ka model banayenge
+const Book = mongoose.model("Book",bookSchema);
+
+-ab controller define karenge,aur usme functinality likhenge
+-Backend folder mai controller  nam se folder create karenge
+-aur usme book.controller.js nam se file banayenge
+-is file mai model import kar lenge
+export const getBook=async (req,res)=>{
+
+    try {
+        const book= await Book.find()
+        res.status(200).json(book)
+    } catch (error) {
+        console.log("Error: ",error);
+        res.status(500).json(error)
+    }
+}
+
+-ab rutes create kar lenge iske liye
+-Backend ke folder mai routes nam se folder create karenge
+-uske ander book.route.js nam se file banayenge
+import express from 'express';
+import { getBook } from '../controller/book.controller.js';
+
+const router = express.Router()
+
+router.get("/",getBook);
+
+export default router;
+
+--ab index.js mai jake bookRoute ko import kar lo
+import bookRoute from "./routes/book.route.js"
+--aur route define kar lo
+app.use("/book",bookRoute)
+
+
+---ab mongodb compass mai jake check kar lo vaha pe bookStore nam se database create ho gaya hoga
+--ab hume public folder mai jo list.json ka data hai vo add karana hai data base mai
+--bookStore mai aake books pe click karo
+--ab ADD DATA pe click karo
+--import json file pe click karo
+--browser mai se file select kar lo
+--usme s list.json file select karke import karenge
+
+
+--ab hum hamari API test karenge aur fir frontend ke sath integrate karenge
+--postman ke madad se
+--open postman
+--click workplace
+--create workplace
+--next pe click kare
+--Name: bookStore
+--create pe click kare
+--ab collections pe click kare
+--create collection pe click kare
+--name rakhe Books
+--Books ke three dot pe click karake Add request kare
+--New Request ki jagah likhe GET BOOK
+--ab url paste karana hai
+--is vakat hamara server port 4001 par chal raha hai
+--to us page pe jake us url ko copy karenge
+--http://localhost:4001/
+--aur / ke age book likhenge,yah book define route ka hai
+//define routes
+app.use("/book",bookRoute)
+
+--http://localhost:4001/book yah hamara url ho gaya
+-url ko paste karane ke bad send kar lo
+--ab hame postman pe respond mil gaya hoga
+--ab hum ise frontend ke sath integrete karenge
+
+-------------------------------------------------------------
+--Frontend -> src -> component -> course.jsx mai jo list.json ko import kiya hai,
+vah hume ab nahi chahiye uske jagah pe hum hamari API ko call karenge
+-API ko call karane ke liye Axios ka upyog karana pdata hai
+--search Axios 
+https://axios-http.com/docs/intro
+--ab hum hamare frontend mai axios ko install karenge
+>npm i axios
+--ab hum hamari backend ki API ko call karenge jo humne define ki hai
+--usake liye pahale state define karate hai(Course.jsx mai)
+--hume frontend and backend agar alag alag port pe chal rahe ho to console error deta hai
+--iske liye hum Backend pe chalenge
+--aur cors ko install karenge
+>npm i cors
+--install hone ke bad jo hamare Backend ki index.js mai jake cors ko import kar le
+import cors from "cors";
+app.use(cors());
+--yah ek middleware hai
+--backend ko run kar le
+--hamne yah deta aur ek jagah pe use kiya hai
+--Freebook.jsx mai vaha pe bhi change karenge
+
+
+
+
+ 

@@ -1,0 +1,31 @@
+--main directory mai vapas jane ke liye
+>cd..
+--naya git repository create karrga
+>git init
+--yah hamare sare files ko git repository ke andar add karane ka kam karega ,
+--aur in future mai jo changes hum karenge use bhi un file mai add karaneka kaam karega
+>git add .
+--ab hum commit command lagayenge quki hamara frontend complete ho chuka hai
+>git commit -m "Frontend Done!"
+--hume ek origin add karani padegi ,yane hume hamari repo ka URL dena padega
+--ab apana git hub account kholo aur create new repositry click karo
+--bookStore app nam se create repository kardo
+--create karane ke bad url hamare pas aa chuka hai 
+--ab url ko copy karlo
+>git remote add origin URL
+>git remote add origin https://github.com/ashwinip2828/bookStoreApp.git
+--itana hone ke bad hume hamara sara code github pe push karana hoga
+--iske liye hume check karana hoga ki hum kis branch mai hai
+>git branch
+--ab hum code push karenge
+>git push -u origin master
+--push hone ke bad hume hamare github account pe jana hai
+--aur reload karana hai
+--aap dekh sakate hai hamara project aa chuka hai
+--ab vs code ke terminal pe jake cd Backend karana
+--ab Backend start karenge
+
+
+----------------------
+--sara project complete hone ke bad hum code ko github pe push karenge
+--

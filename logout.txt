@@ -1,0 +1,41 @@
+--src->component->signup.jsx component open karenge
+--Signup API ko call karake Backend ko frontend mai add karenge
+
+
+--Signup sucess fully aane ke bad backend se sirf user created sucessfully ka message aa raha hai
+--to hum Baackend ke user.contoller.js pe jake  
+  res.status(201).json({message:"User created successfully"});
+--iske jagah
+res.status(201).json({message:"User created successfully",
+       user:{
+        _id:createdUser._id,
+        fullname:createdUser.fullname,
+        email:createdUser.email,
+       },
+
+--ab hum chahate ki jab koi user create ho to vo browser ke local storage mai save ho jaye,
+taki bad mai hum use kar paye apane  dusare component mai ,quki  hume course vale route ko protect karana hai,
+iska matlab hai jo user login hai bas vahi course vala part dekh sake
+--isake liye sighup.jsx mai
+  localStorage.setItem("Users",JSON.stringify(res.data.user));
+
+--ab yahi sab login ke liye copy paste karenge
+
+-------------------------------------------------------------------------------------
+
+--login hone ke bad hum chahate hai ki ek accha pop up message aaye iske liye
+--search react hot toast
+https://react-hot-toast.com/docs
+>npm i react-hot-toast
+
+--ab app.jsx mai jayenge
+import { Toaster } from 'react-hot-toast';
+
+  <Toaster />
+
+--ab click toast() ,aur success keliye niche aake dhundege,
+--copy karake login ke page pe jake alert ke jahah paste karenge
+toast.success('Successfully created!');
+
+
+

@@ -1,0 +1,73 @@
+--sabse pahale hume node application ko hamare priject mai initialize karana padata hai
+>npm init
+--ab vo package name puchega to hume nam dena hoga
+>package name: (backend) bookstore
+>version: (1.0.0)
+>description: mern project
+>entry point: (index.js)
+>test command:
+>git repository:https://github.com/ashwinip2828/bookStoreApp.git
+>keywords:
+>author: ashwinip
+>license: (ISC)
+>Is this OK? (yes) yes
+
+*********************************************************************************************************
+--Express
+--ab hamare backend ke folder mai package.json file aa chuki hogi
+--ab hame express ko install karana ahai
+--search express
+--get started
+>npm install express
+--install hone ke bad niche diye huye hello word pe click kare
+--aur uska code copy kar le
+--harama entry point rahega index.js
+--to Backend ke folder mai ek file bana de index.js nam se
+--ab us code ko is page pe paste kar do
+--ab hame package.json mai jao
+--scripts : mai likho
+--"scripts":{
+"start":"node index.js"
+},
+--ab npm start karo
+>npm start
+--ab local host 3000 pe output dikhega
+--ab nodemon install karenge
+--nodemon server ko apne aap restart karega
+>npm i nodemon
+--ab hum packege.json mai script mai likhenge
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+--hamare port ki imformation sensitive hoti hai to ham use chupayenge 
+--hume .env ko install karana padega
+--search dotenv npm
+--copy env install
+>npm i dotenv
+--ab ise project ko import karana padega index.js file mai
+-- const dotenv = require("dotenv");
+--ab ise config karenge index.js mai
+--dotenv.config();
+--isake liye Backend folder mai  .env file banayenge
+--usame likhenge
+PORT=4001
+--aur index.js mai likhenge port=3000 ke jagah pe
+const PORT = process.env.PORT || 4000;   
+--isaka arth hai agar 4001 port busy hoga to 4000 port pe server chalu kar do
+--ab npm start karake server ko start karenge
+--hamara port shuru ho jayega local host 4000 pe
+
+
+--hum require vala syuntax use nahi karenge packages ko import karane ke liye
+--js ke Es6 ke edition mai import ka syntax aa gaya tha jisko hum use kar sakte hai backend ke liye
+--iske liye hume hamare package.jsion mai type define karana padega module
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "mern project",
+  "main": "index.js",
+  "type": "module",
+import express from "express";
+import dotenv from "dotenv"
+
+--ab hame data base ka code likhenge

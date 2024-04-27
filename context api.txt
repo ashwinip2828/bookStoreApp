@@ -1,0 +1,20 @@
+--ab hum context api create karenge apane frontend pe
+--aur usake thr. hum local storage se user ko receive karenge apane API ke ander
+--aur fir use another component mai use karenge
+--aur apane is course vale route ko hum protect karenge
+--agar user logedin hai ya signup hai tabhi use course vala page dikhana chahiye
+--otherwise yah page open nahi hona chahiye
+
+--Frontend mai src mai context nam se folder banaye
+--AuthProvider.jsx nam se component banayenge
+--uske ander 
+--rfc enter
+import React, { createContext } from 'react'
+
+export const AuthContext=createContext()
+export default function AuthProvider({children}) {
+
+}
+
+--itana karane bad hamara kam hai local storage se user ko leke ana
+
